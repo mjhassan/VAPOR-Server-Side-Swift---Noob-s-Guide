@@ -11,8 +11,8 @@ Vapor is a web framework, developed by the collaborators from Qutheory, which ou
 
 <h2>Installation and configuration of Vapor</h2>
 Before we start with Vapor we need few things configured.<br/>
-First, we need is Swift 3 or later, which is obvious. If you are in macOS you should already have Xcode 8 or later. If not, Install [Xcode 8](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) from the Mac App Store 
-or using [xip file](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip). Xcode comes with Swift compiler. By the time of writing this post, Xcode version is 8.2.1 and Swift 3.0.2. 
+First, we need is Swift 3 or later, which is obvious. If you are in macOS you should already have Xcode 8 or later. If not, Install ![Xcode 8](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) from the Mac App Store 
+or using ![xip file](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip). Xcode comes with Swift compiler. By the time of writing this post, Xcode version is 8.2.1 and Swift 3.0.2. 
 <br/>
 Swift installation in Ubuntu is also easy. Type the following command in terminal:
 
@@ -43,19 +43,20 @@ A server template project, named ***ServerExample*** will be created. Enter into
     cd ServerExample
 The folder structure of the project will probably look like:
 
-ServerExample
-├── Sources
-│   └── App
-│       └── Controllers
-│       └── Middleware
-│       └── Models
-│       └── main.swift
-├── Public
-├── Resources
-│   └── Views
-└── Package.swift
+ServerExample<br/>
+├── Sources<br/>
+│   └── App<br/>
+│       └── Controllers<br/>
+│       └── Middleware<br/>
+│       └── Models<br/>
+│       └── main.swift<br/>
+├── Public<br/>
+├── Resources<br/>
+│   └── Views<br/>
+└── Package.swift<br/>
 
-Our main focus will be on the `main.swift` file.<br/>
+Our main focus will be on the `main.swift` file.<br/><br/>
+
 Now `build` and `run` the server with simple commands.
 
     vapor build
@@ -92,7 +93,7 @@ Let's explain the code a bit.
 This standerd _import delaration_ of Vapor, which let you access functionalities and symbols defined in Vapor.
 
     let drop = Droplet()
-The `Droplet` is a service container that gives you access to many of Vapor's facilities. It is responsible for registering routes, starting the server, appending middleware, and more.. The `Droplet` class has a plethora of useful functions on it, and is used extensively.
+The `Droplet` is a service container that gives you access to many of Vapor's facilities. It is responsible for registering routes, starting the server, appending middleware, and more. The `Droplet` class has a plethora of useful functions on it, and is used extensively.
 
     drop.get
 `get` method creates a Vapor's Router using `Droplet`, which handles a GET request.
@@ -103,4 +104,4 @@ The `Droplet` is a service container that gives you access to many of Vapor's fa
      drop.resource
 This one gets resource from _PostController_ and registered into the router as a RESTful resource.
 
-And last `drop.run()` runs the server and listening to the port 8080. This port is defined in `servers.json` file, which is inside _Config_ folder.
+And lastly, `drop.run()` runs the server and listening to the port 8080. This port is defined in `servers.json` file, which is inside _Config_ folder.
