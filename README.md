@@ -9,7 +9,7 @@ Among those VAPOR is most simple. In this post we will learn how to write server
 
 Vapor is a web framework, developed by the collaborators from Qutheory, which outstands for its simplicity, type safety and speed.
 
-<h1>Installation and configuration of Vapor</h1>
+<h2>Installation and configuration of Vapor</h2>
 Before we start with Vapor we need few things configured.<br/>
 First, we need is Swift 3 or later, which is obvious. If you are in macOS you should already have Xcode 8 or later. If not, Install [Xcode 8](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) from the Mac App Store 
 or using [xip file](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip). Xcode comes with Swift compiler. By the time of writing this post, Xcode version is 8.2.1 and Swift 3.0.2. 
@@ -34,3 +34,73 @@ Make sure the Toolbox installed successfully by running the help query. You shou
 
     vapor --help
     
+<h2>Create and run a Vapor server</h2>
+Vapor comes with default server template. Create a basic server, using CLI, with simple command.
+
+    vapor new ServerExample
+A server template project, named ***ServerExample*** will be created. Enter into the project folder using
+
+    cd ServerExample
+The folder structure of the project will probably look like:
+
+ServerExample
+├── Sources
+│   └── App
+│       └── Controllers
+│       └── Middleware
+│       └── Models
+│       └── main.swift
+├── Public
+├── Resources
+│   └── Views
+└── Package.swift
+
+Our main focus will be on the `main.swift` file.<br/>
+Now `build` and `run` the server with simple commands.
+
+    vapor build
+    vapor run
+You will see `Server 'default' starting at 0.0.0.0:8080` in the terminal output. If you visit `0.0.0.0:8080`, `127.0.0.1:8080` or [localhost:8080](http://localhost:8080/) you should see that “it works”:
+![vapor.png](https://github.com/mjhassan/VAPOR-Server-Side-Swift---Noob-s-Guide/blob/master/vapor.png)
+
+Let's check some code, open the `main.swift` file using your favorite text editor. Mac user can use Xcode for editing, build and run the Vapor project. Simply, type `vapor xcode` in your terminal. Output will be:
+
+    Fetching Dependencies [Done]
+    Generating Xcode Project [Done]
+    Select the `App` scheme to run.
+    Open Xcode project?
+    y/n>
+type **y** and press enter. ***ServerExample*** project will open in Xcode. Now, in `main.swift` you will see following codes:
+
+    import Vapor
+ 
+    let drop = Droplet()
+ 
+    drop.get { req in
+        return try drop.view.make("welcome", [
+                "message": drop.localization[req.lang, "welcome", "title"]
+        ])
+    }
+     
+    drop.resource("posts", PostController())
+     
+    drop.run()
+
+Let's explain the code a bit.
+
+    import Vapor
+This standerd _import delaration_ of Vapor, which let you access functionalities and symbols defined in Vapor.
+
+    let drop = Droplet()
+The `Droplet` is a service container that gives you access to many of Vapor's facilities. It is responsible for registering routes, starting the server, appending middleware, and more.. The `Droplet` class has a plethora of useful functions on it, and is used extensively.
+
+    drop.get
+`get` method creates a Vapor's Router using `Droplet`, which handles a GET request.
+
+    return try drop.view.make
+ `drop.view.make` creates the view and `return` provides the response when you go to localhost:8080. As it may cause exception if it is not found, hence `try` keyword.
+ 
+     drop.resource
+This one gets resource from _PostController_ and registered into the router as a RESTful resource.
+
+And last `drop.run()` runs the server and listening to the port 8080. This port is defined in `servers.json` file, which is inside _Config_ folder.
