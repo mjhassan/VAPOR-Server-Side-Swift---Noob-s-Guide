@@ -11,8 +11,8 @@ Vapor is a web framework, developed by the collaborators from Qutheory, which ou
 
 <h2>Installation and configuration of Vapor</h2>
 Before we start with Vapor we need few things configured.<br/>
-First, we need is Swift 3 or later, which is obvious. If you are in macOS you should already have Xcode 8 or later. If not, Install ![Xcode 8](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) from the Mac App Store 
-or using ![xip file](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip). Xcode comes with Swift compiler. By the time of writing this post, Xcode version is 8.2.1 and Swift 3.0.2. 
+First, we need is Swift 3 or later, which is obvious. If you are in macOS you should already have Xcode 8 or later. If not, Install [Xcode 8](https://goo.gl/oqBK0f) from the Mac App Store 
+or using [xip file](https://goo.gl/wvH864). Xcode comes with Swift compiler. By the time of writing this post, Xcode version is 8.2.1 and Swift 3.0.2. 
 <br/>
 Swift installation in Ubuntu is also easy. Type the following command in terminal:
 
