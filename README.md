@@ -21,10 +21,12 @@ If you want to install manually follow [this process](https://vapor.github.io/do
 Now, to check if your system is ready for Vapor, run the following command in Terminal:
 
     curl -sL check.vapor.sh | bash
-If everything is correct, intall Vapor using this command:
+If everything is correct, install Vapor using this command:
 
     curl -sL toolbox.vapor.sh | bash
+> From Swift 3.1, installation command is
     
+    brew install vapor/tap/vapor
 When installation is done you will see Vapor's command line interface, which provides shortcuts and assistance for common tasks.
 
 ![Vapor-cli.png](https://cloud.githubusercontent.com/assets/1342803/17454691/97e549e2-5b6d-11e6-979a-f0cd6b6f1b0a.png)
